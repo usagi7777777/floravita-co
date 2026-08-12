@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<!--
+  移植元: ~/Desktop/ClaudeCode作業/ユニコスクール/floravita-hp/index.html（原本は未変更）
+  移植日: 2026-08-12 / 品質ゲート: 04ブランドVoice・05薬機法/医療法・16数値照合(数値なし)通過
+  ステータス: 未公開ドラフト。公開判断はオーナー。
+-->
+
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Floravita オンライン相談ルーム</title>
+<style>
+  :root{
+    --ink:#3a3a3a;
+    --paper:#ffffff;
+    --ivory:#faf7f2;
+    --green:#7a9e7e;
+    --green-deep:#5d8262;
+    --pink:#e8b4c0;
+    --radius:24px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:"Hiragino Kaku Gothic ProN","Yu Gothic",system-ui,sans-serif;
+    color:var(--ink);background:var(--paper);
+    font-size:18px;line-height:1.9;font-weight:500;
+  }
+  img{max-width:100%}
+
+  /* ---------- ヘッダー ---------- */
+  header{
+    position:sticky;top:0;z-index:50;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:18px 5vw;background:rgba(255,255,255,.92);
+    backdrop-filter:blur(8px);border-bottom:1px solid #f0ebe3;
+  }
+  .logo{font-size:26px;font-weight:800;letter-spacing:.06em;color:var(--green-deep)}
+  .logo span{color:var(--pink)}
+  nav{display:flex;gap:8px;flex-wrap:wrap}
+  nav a{
+    text-decoration:none;color:var(--ink);font-weight:700;font-size:17px;
+    padding:10px 18px;border-radius:999px;transition:background .4s;
+  }
+  nav a:hover{background:var(--ivory)}
+  nav a.cta{background:var(--green);color:#fff}
+  nav a.cta:hover{background:var(--green-deep)}
+
+  section{padding:96px 5vw}
+  .inner{max-width:1040px;margin:0 auto}
+  h2{font-size:clamp(34px,5vw,48px);font-weight:800;letter-spacing:.04em;
+     text-align:center;margin-bottom:16px}
+  .lead{text-align:center;font-size:19px;color:#6b6b6b;margin-bottom:56px}
+  .accent{color:var(--green-deep)}
+
+  /* ---------- ヒーロー ---------- */
+  .hero{background:var(--paper);padding:72px 5vw 88px}
+  .hero .inner{
+    display:flex;align-items:center;gap:48px;flex-wrap:wrap;justify-content:center;
+  }
+  .hero-text{flex:1 1 420px;min-width:300px}
+  .badge{
+    display:inline-block;background:var(--ivory);color:var(--green-deep);
+    font-size:15px;font-weight:700;padding:8px 20px;border-radius:999px;margin-bottom:24px;
+  }
+  h1{font-size:clamp(40px,6.5vw,62px);font-weight:800;line-height:1.4;letter-spacing:.03em}
+  h1 em{font-style:normal;color:var(--green-deep)}
+  .hero p.sub{font-size:20px;color:#6b6b6b;margin:24px 0 40px}
+  .btn{
+    display:inline-block;background:var(--green);color:#fff;text-decoration:none;
+    font-size:22px;font-weight:800;padding:22px 56px;border-radius:999px;
+    border:none;cursor:pointer;letter-spacing:.06em;
+    box-shadow:0 12px 32px rgba(122,158,126,.35);
+    transition:transform .4s,box-shadow .4s,background .4s;
+  }
+  .btn:hover{transform:translateY(-3px);background:var(--green-deep);
+    box-shadow:0 18px 40px rgba(122,158,126,.45)}
+  .hero-chara{flex:0 1 340px;text-align:center}
+  .hero-chara img{width:min(320px,70vw);animation:breath 3.2s ease-in-out infinite}
+  .hero-chara figcaption{font-size:16px;color:#9a9a9a;margin-top:8px}
+  @keyframes breath{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+
+  /* ---------- Floravitaについて ---------- */
+  .about{background:var(--ivory)}
+  .about .wrap{display:flex;gap:48px;align-items:center;flex-wrap:wrap;justify-content:center}
+  .about .photo{flex:0 1 260px;text-align:center}
+  .about .photo img{width:min(240px,60vw);border-radius:50%;background:var(--paper);
+    box-shadow:0 14px 40px rgba(90,80,60,.10);padding:16px}
+  .about .photo figcaption{font-size:15px;color:#9a9a9a;margin-top:10px}
+  .about .text{flex:1 1 420px;min-width:300px;font-size:18px}
+  .about .text p{margin-bottom:18px}
+  .about .name{font-weight:800;color:var(--green-deep)}
+  .sns{display:flex;gap:14px;flex-wrap:wrap;margin-top:28px}
+  .sns a{
+    display:inline-block;text-decoration:none;font-weight:800;font-size:16px;
+    color:var(--green-deep);background:var(--paper);border:2px solid var(--green);
+    border-radius:999px;padding:12px 26px;transition:background .3s,color .3s;
+  }
+  .sns a:hover{background:var(--green);color:#fff}
+
+  /* ---------- 流れ ---------- */
+  .flow{background:var(--ivory)}
+  .steps{display:flex;gap:28px;flex-wrap:wrap;justify-content:center}
+  .step{
+    flex:1 1 260px;max-width:320px;background:var(--paper);
+    border-radius:var(--radius);padding:40px 32px;text-align:center;
+    box-shadow:0 14px 40px rgba(90,80,60,.08);
+  }
+  .step .num{
+    display:inline-flex;align-items:center;justify-content:center;
+    width:56px;height:56px;border-radius:50%;background:var(--pink);
+    color:#fff;font-size:26px;font-weight:800;margin-bottom:20px;
+  }
+  .step .num.wide{
+    width:auto;min-width:56px;padding:0 24px;border-radius:999px;
+    font-size:22px;letter-spacing:.04em;white-space:nowrap;
+  }
+  .step h3{font-size:24px;font-weight:800;margin-bottom:12px}
+  .step p{font-size:17px;color:#6b6b6b}
+
+  /* ---------- 受付 ---------- */
+  .reception .card{
+    max-width:640px;margin:0 auto;background:var(--paper);
+    border-radius:var(--radius);padding:56px 8vw;
+    box-shadow:0 20px 60px rgba(90,80,60,.10);
+  }
+  .reception{background:var(--paper)}
+  .reception .card{border:2px solid var(--ivory)}
+  label{display:block;font-size:18px;font-weight:800;margin:28px 0 10px}
+  input,select,textarea{
+    width:100%;font-size:19px;padding:18px 20px;font-family:inherit;
+    border:2px solid #e8e2d8;border-radius:16px;background:var(--ivory);
+    color:var(--ink);outline:none;transition:border .3s;
+  }
+  input:focus,select:focus,textarea:focus{border-color:var(--green)}
+  textarea{min-height:120px;resize:vertical}
+  .reception .btn{width:100%;margin-top:40px;font-size:24px}
+  .note{font-size:15px;color:#9a9a9a;margin-top:20px;text-align:center}
+
+  /* ---------- 待合室 ---------- */
+  .waiting{background:var(--ivory);display:none}
+  .waiting.show{display:block}
+  .board{
+    max-width:520px;margin:0 auto 64px;background:var(--paper);
+    border-radius:var(--radius);padding:36px;text-align:center;
+    box-shadow:0 14px 40px rgba(90,80,60,.08);
+  }
+  .board .label{font-size:17px;color:#9a9a9a;letter-spacing:.1em}
+  .board .number{
+    font-size:72px;font-weight:800;color:var(--green-deep);
+    animation:blink 2.4s ease-in-out infinite;
+  }
+  @keyframes blink{0%,100%{opacity:1}50%{opacity:.45}}
+  .board .msg{font-size:18px}
+  .bench-area{max-width:900px;margin:0 auto;text-align:center}
+  .sitters{
+    display:flex;justify-content:center;align-items:flex-end;
+    gap:2vw;padding:0 12px;
+  }
+  .sitters img{
+    width:clamp(64px,11vw,120px);
+    animation:bob 3.6s ease-in-out infinite;
+  }
+  .sitters img:nth-child(2){animation-delay:.5s}
+  .sitters img:nth-child(3){animation-delay:1.1s}
+  .sitters img:nth-child(4){animation-delay:1.7s}
+  .sitters img:nth-child(5){animation-delay:2.3s}
+  .sitters img:nth-child(6){animation-delay:2.9s}
+  @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+  .bench{
+    height:34px;background:var(--green);border-radius:18px;
+    margin:-8px auto 0;max-width:860px;
+    box-shadow:0 16px 30px rgba(122,158,126,.35);
+  }
+  .bench::after{
+    content:"";display:block;height:26px;max-width:860px;
+    border-left:14px solid var(--green-deep);border-right:14px solid var(--green-deep);
+    margin:0 40px;
+  }
+  .bench-area p{margin-top:36px;font-size:19px;color:#6b6b6b}
+
+  /* ---------- スタッフ ---------- */
+  .staff{background:var(--paper)}
+  .members{display:flex;gap:24px;flex-wrap:wrap;justify-content:center}
+  .member{
+    flex:0 1 220px;background:var(--ivory);border-radius:var(--radius);
+    padding:28px 20px;text-align:center;
+    transition:transform .4s;
+  }
+  .member:hover{transform:translateY(-6px)}
+  .member img{width:120px}
+  .member h3{font-size:20px;font-weight:800;margin-top:12px}
+  .member p{font-size:15px;color:#8a8a8a}
+  .member .tag{
+    display:inline-block;font-size:13px;font-weight:700;color:#fff;
+    background:var(--pink);border-radius:999px;padding:2px 14px;margin-top:8px;
+  }
+  .member .tag.g{background:var(--green)}
+
+  /* ---------- フッター ---------- */
+  footer{background:var(--ivory);padding:64px 5vw;text-align:center}
+  footer .logo{margin-bottom:16px}
+  footer p{font-size:15px;color:#9a9a9a;max-width:720px;margin:6px auto}
+  footer .disclaimer{
+    font-weight:700;color:#8a8a8a;background:var(--paper);
+    border-radius:16px;padding:20px;margin:24px auto;max-width:720px;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">Flora<span>vita</span></div>
+  <nav>
+    <a href="#about">Floravitaについて</a>
+    <a href="#flow">ご利用の流れ</a>
+    <a href="#course">コースと料金</a>
+    <a href="#staff">スタッフ</a>
+    <a href="#reception" class="cta">受付へ</a>
+  </nav>
+</header>
+
+<!-- ヒーロー -->
+<section class="hero">
+  <div class="inner">
+    <div class="hero-text">
+      <span class="badge">予約制・毎週火・日 13〜17時 オンライン開室</span>
+      <h1>こころとからだの、<br><em>よろず相談室</em>。</h1>
+      <p class="sub">Floravita オンライン相談ルームは、
+      健康や生活習慣の気がかりを、医師とゆっくり話せる場所です。
+      白衣も待ち時間の不安も、ここにはありません。</p>
+      <a class="btn" href="#reception">いますぐ受付する</a>
+    </div>
+    <figure class="hero-chara">
+      <img src="assets/ameba-blog.png" alt="受付係のうさぎ">
+      <figcaption>受付係のうさぎが、ご案内します</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- Floravitaについて -->
+<section class="about" id="about">
+  <div class="inner">
+    <h2><span class="accent">Floravita</span>について</h2>
+    <p class="lead">主宰の医師から、ごあいさつ。</p>
+    <div class="wrap">
+      <figure class="photo">
+        <img src="assets/dr-momo.png" alt="Dr.Momo">
+        <figcaption>Dr.Momo（総合内科専門医・認定産業医）</figcaption>
+      </figure>
+      <div class="text">
+        <p>はじめまして。Floravitaを主宰しています、内科医の<span class="name">Momo</span>です。</p>
+        <p>総合内科専門医・認定産業医として約20年、外来と健診の現場で、数万人の方の健康や不安と向き合ってきました。シドニーの研究機関（Garvan Institute）で研究をしていた時期もあります。</p>
+        <p>診察室では、いつも時間が足りません。「本当はもっとゆっくり聞きたいのに」。その気持ちが、この相談ルームの出発点です。健診の数字のこと、ご家族の健康のこと、誰かに話したかったこと。白衣のない場所で、ゆっくりお話ししましょう。</p>
+        <div class="sns">
+          <a href="https://note.com/moppyandchappy" target="_blank" rel="noopener">note（健康の読みもの）</a>
+          <a href="https://www.instagram.com/floravita.health/" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://x.com/floravita_" target="_blank" rel="noopener">X</a>
+          <!-- KDP本のAmazonリンクが確定したらここに追加:
+          <a href="https://www.amazon.co.jp/dp/XXXX" target="_blank" rel="noopener">書籍（Kindle）</a> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 流れ -->
+<section class="flow" id="flow">
+  <div class="inner">
+    <h2>ご利用の<span class="accent">流れ</span></h2>
+    <p class="lead">むずかしい操作はありません。3ステップで完了します。</p>
+    <div class="steps">
+      <div class="step">
+        <span class="num">1</span>
+        <h3>受付でチェックイン</h3>
+        <p>お名前とご希望の日時を入力して、チェックインボタンを押すだけ。</p>
+      </div>
+      <div class="step">
+        <span class="num">2</span>
+        <h3>待合ベンチでひとやすみ</h3>
+        <p>予約メッセージが届くと受付番号を発行。動物スタッフと一緒にお待ちください。</p>
+      </div>
+      <div class="step">
+        <span class="num">3</span>
+        <h3>オンラインでご相談</h3>
+        <p>日程が確定したらメールでご連絡。オンラインでゆっくりお話しましょう。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- コースと料金 -->
+<section class="staff" id="course">
+  <div class="inner">
+    <h2><span class="accent">コース</span>と料金</h2>
+    <p class="lead">すべて予約制・オンラインです。（毎週火・日 13〜17時）</p>
+    <div class="steps">
+      <div class="step">
+        <span class="num wide">30分</span>
+        <h3>オンライン健康相談・ヘルスケアサポート</h3>
+        <p>健康や生活習慣に関する一般的なご相談。セルフケアや生活改善のアドバイス、必要に応じて医療機関受診の目安をご案内します。</p>
+        <p style="font-size:26px;font-weight:800;color:var(--green-deep);margin-top:14px">￥8,000</p>
+      </div>
+      <div class="step">
+        <span class="num wide">60分</span>
+        <h3>オンライン健康相談・ヘルスケアサポート</h3>
+        <p>30分コースと同じ内容を、じっくり時間をかけて。健診結果の気がかりが多い方、はじめての方にも。</p>
+        <p style="font-size:26px;font-weight:800;color:var(--green-deep);margin-top:14px">￥16,000</p>
+      </div>
+      <div class="step">
+        <span class="num wide">30分</span>
+        <h3>お話し相手・こころのセルフケアサポート</h3>
+        <p>日常の悩みや不安、ストレス、誰かと話したい気持ちに寄り添います。診断・治療・カウンセリング・医療行為は行いません。</p>
+        <p style="font-size:26px;font-weight:800;color:var(--green-deep);margin-top:14px">￥8,000</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 受付 -->
+<section class="reception" id="reception">
+  <div class="inner">
+    <h2><span class="accent">受付</span>（チェックイン）</h2>
+    <p class="lead">入力内容をもとに、予約メールの下書きが自動で立ち上がります。<br>
+    内容を確認して、送信ボタンを押してください。</p>
+    <div class="card">
+      <label for="name">お名前（ニックネームでOK）</label>
+      <input id="name" type="text" placeholder="例：みゆき">
+      <label for="course">ご希望のコース</label>
+      <select id="course">
+        <option>オンライン健康相談・ヘルスケアサポート（30分・￥8,000）</option>
+        <option>オンライン健康相談・ヘルスケアサポート（60分・￥16,000）</option>
+        <option>お話し相手・こころのセルフケアサポート（30分・￥8,000）</option>
+      </select>
+      <label for="date">第一希望の日時（毎週火・日 13〜17時）</label>
+      <input id="date" type="text" placeholder="例：8月18日（火）14時ごろ">
+      <label for="date2">第二希望の日時</label>
+      <input id="date2" type="text" placeholder="例：8月23日（日）15時ごろ">
+      <label for="topic">ご相談内容（ざっくりでOK）</label>
+      <textarea id="topic" placeholder="例：最近ねむりが浅いので、生活習慣を相談したい"></textarea>
+      <button class="btn" onclick="checkin()">チェックインする</button>
+      <p class="note">送信先：info@floravita.co（お使いのメールアプリが開きます）</p>
+    </div>
+  </div>
+</section>
+
+<!-- 待合室 -->
+<section class="waiting" id="waiting">
+  <div class="inner">
+    <h2>ようこそ、<span class="accent">待合ベンチ</span>へ</h2>
+    <p class="lead">チェックインを受け付けました。おかけになってお待ちください。</p>
+    <div class="board">
+      <div class="label">あなたの受付番号</div>
+      <div class="number" id="ticket">-</div>
+      <p class="msg" id="callmsg">日程が確定しだい、メールでお呼びします</p>
+    </div>
+    <div class="bench-area">
+      <div class="sitters">
+        <img src="assets/online-counseling.png" alt="熊のカウンセラー">
+        <img src="assets/guideline-checker.png" alt="トイプードル">
+        <img src="assets/kyougou-research.png" alt="リス">
+        <img src="assets/writer.png" alt="青い鳥">
+      </div>
+      <div class="bench"></div>
+      <p>みんなも順番を待っています。ゆっくりどうぞ。</p>
+    </div>
+  </div>
+</section>
+
+<!-- スタッフ -->
+<section class="staff" id="staff">
+  <div class="inner">
+    <h2><span class="accent">スタッフ</span>紹介</h2>
+    <p class="lead">相談相手のDr.Momoと、Floravitaオフィスの動物スタッフたちです。</p>
+    <div class="members">
+      <div class="member">
+        <img src="assets/dr-momo.png" alt="Dr.Momo">
+        <h3>Dr.Momo</h3><p>あなたの相談相手。総合内科専門医・認定産業医。健診の数字から暮らしの気がかりまで、やさしい言葉で一緒に整理します。</p>
+        <span class="tag">相談相手</span>
+      </div>
+      <div class="member">
+        <img src="assets/ameba-blog.png" alt="うさぎ">
+        <h3>うさぎ</h3><p>受付係</p>
+        <span class="tag">受付</span>
+      </div>
+      <div class="member">
+        <img src="assets/online-counseling.png" alt="熊">
+        <h3>くま</h3><p>環境整備・助手</p>
+        <span class="tag g">助手</span>
+      </div>
+      <div class="member">
+        <img src="assets/guideline-checker.png" alt="トイプードル">
+        <h3>トイプードル</h3><p>安心チェック担当</p>
+        <span class="tag g">品質</span>
+      </div>
+      <div class="member">
+        <img src="assets/kyougou-research.png" alt="リス">
+        <h3>リス</h3><p>しらべもの担当</p>
+        <span class="tag g">リサーチ</span>
+      </div>
+      <div class="member">
+        <img src="assets/writer.png" alt="青い鳥">
+        <h3>青い鳥</h3><p>おたより担当</p>
+        <span class="tag g">ライティング</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="logo">Flora<span>vita</span></div>
+  <p class="disclaimer">当ルームは医療機関ではありません。診断・治療・処方・医薬品の提供は行いません。<br>
+  体調がすぐれない場合は医療機関の受診をご検討ください。緊急を要する症状のときは、ためらわず救急（119）へ。</p>
+  <p>開室：毎週火・日 13〜17時（予約制）／ご連絡先：info@floravita.co</p>
+  <p>今日の一歩が、5年後、10年後のあなたをつくる。</p>
+  <p>© Floravita</p>
+</footer>
+
+<script>
+'use strict';
+function checkin(){
+  const name=document.getElementById('name').value.trim()||'（未入力）';
+  const course=document.getElementById('course').value;
+  const date=document.getElementById('date').value.trim()||'（未入力）';
+  const date2=document.getElementById('date2').value.trim()||'（未入力）';
+  const topic=document.getElementById('topic').value.trim()||'（未入力）';
+
+  /* 受付番号を発行して待合室を表示 */
+  const ticket=Math.floor(100+Math.random()*900);
+  document.getElementById('ticket').textContent=ticket;
+  const w=document.getElementById('waiting');
+  w.classList.add('show');
+
+  /* info@floravita.co 宛の予約メール下書きを開く */
+  const subject='【オンライン相談 予約】'+name+'さま（受付番号 '+ticket+'）';
+  const body='Floravita オンライン相談ルーム 予約メッセージ\n'
+    +'--------------------------------\n'
+    +'お名前： '+name+'\n'
+    +'ご希望コース： '+course+'\n'
+    +'第一希望日時： '+date+'\n'
+    +'第二希望日時： '+date2+'\n'
+    +'ご相談内容： '+topic+'\n'
+    +'受付番号： '+ticket+'\n'
+    +'--------------------------------\n'
+    +'（このメールは受付ページから自動作成されました）';
+  location.href='mailto:info@floravita.co'
+    +'?subject='+encodeURIComponent(subject)
+    +'&body='+encodeURIComponent(body);
+
+  /* 待合室へスクロール */
+  setTimeout(()=>w.scrollIntoView({behavior:'smooth'}),300);
+}
+</script>
+</body>
+</html>
