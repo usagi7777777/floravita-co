@@ -2,7 +2,7 @@
 <!--
   移植元: ~/Desktop/ClaudeCode作業/ユニコスクール/floravita-hp/index.html（原本は未変更）
   移植日: 2026-08-12 / 品質ゲート: 04ブランドVoice・05薬機法/医療法・16数値照合(数値なし)通過
-  ステータス: 未公開ドラフト。公開判断はオーナー。
+  ステータス: 公開中 floravita.co / 2026-08-23 ヒーローに健診ガイド導線。
 -->
 
 <html lang="ja">
@@ -10,6 +10,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Floravita オンライン相談ルーム</title>
+<meta name="description" content="健診結果を落ち込まず次の一手に。人間ドック認定の内科医によるガイド。noteとKindleで読めます。">
 <style>
   :root{
     --ink:#3a3a3a;
@@ -198,6 +199,22 @@
   }
   .member .tag.g{background:var(--green)}
 
+
+  .btn-row{display:flex;flex-wrap:wrap;gap:14px;align-items:center;margin-top:8px}
+  .btn.ghost{
+    background:transparent;color:var(--green-deep);
+    box-shadow:none;border:2px solid var(--green);
+    padding:18px 36px;font-size:18px;
+  }
+  .btn.ghost:hover{background:var(--green);color:#fff}
+  .btn.secondary{
+    background:var(--paper);color:var(--green-deep);
+    border:2px solid var(--green);box-shadow:none;
+    padding:18px 36px;font-size:18px;
+  }
+  .btn.secondary:hover{background:var(--green);color:#fff}
+  .hero p.offer{font-size:18px;font-weight:800;color:var(--green-deep);margin:0 0 20px}
+
   /* ---------- フッター ---------- */
   footer{background:var(--ivory);padding:64px 5vw;text-align:center}
   footer .logo{margin-bottom:16px}
@@ -213,6 +230,7 @@
 <header>
   <div class="logo">Flora<span>vita</span></div>
   <nav>
+    <a href="https://note.com/moppyandchappy/n/n0883a53cb4a9" target="_blank" rel="noopener">健診ガイド</a>
     <a href="#about">Floravitaについて</a>
     <a href="#flow">ご利用の流れ</a>
     <a href="#course">コースと料金</a>
@@ -230,7 +248,12 @@
       <p class="sub">Floravita オンライン相談ルームは、
       健康や生活習慣の気がかりを、医師とゆっくり話せる場所です。
       待ち時間の不安も、かしこまった緊張も、ここにはありません。</p>
-      <a class="btn" href="#reception">いますぐ受付する</a>
+      <p class="offer">健診結果を、落ち込まず次の一手に。</p>
+      <div class="btn-row">
+        <a class="btn" href="https://note.com/moppyandchappy/n/n0883a53cb4a9" target="_blank" rel="noopener">ガイドを読む</a>
+        <a class="btn secondary" href="https://www.amazon.co.jp/dp/B0HDSC39FC" target="_blank" rel="noopener">Kindleで読む</a>
+        <a class="btn ghost" href="#reception">相談の受付へ</a>
+      </div>
     </div>
     <figure class="hero-chara">
       <img src="assets/ameba-blog.png" alt="受付係のうさぎ">
@@ -254,7 +277,7 @@
         <p>総合内科専門医・認定産業医として約20年、外来と健診の現場で、数万人の方の健康や不安と向き合ってきました。シドニーの研究機関（Garvan Institute）で研究をしていた時期もあります。</p>
         <p>診察室では、いつも時間が足りません。「本当はもっとゆっくり聞きたいのに」。その気持ちが、この相談ルームの出発点です。健診の数字のこと、ご家族の健康のこと、誰かに話したかったこと。白衣のない場所で、ゆっくりお話ししましょう。</p>
         <div class="sns">
-          <a href="https://note.com/moppyandchappy" target="_blank" rel="noopener">note（健康の読みもの）</a>
+          <a href="https://note.com/moppyandchappy/n/n0883a53cb4a9" target="_blank" rel="noopener">健診ガイド（note）</a>
           <a href="https://www.instagram.com/floravita.health/" target="_blank" rel="noopener">Instagram</a>
           <a href="https://x.com/floravita_" target="_blank" rel="noopener">X</a>
           <a href="https://www.amazon.co.jp/dp/B0HDSC39FC" target="_blank" rel="noopener">著書『健診結果で落ち込まないで！』</a>
