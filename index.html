@@ -361,6 +361,16 @@
       <input id="date2" type="text" placeholder="例：8月23日（日）15時ごろ">
       <label for="topic">ご相談内容（ざっくりでOK）</label>
       <textarea id="topic" placeholder="例：最近ねむりが浅いので、生活習慣を相談したい"></textarea>
+      <label for="source">Floravitaをどこで知りましたか</label>
+      <select id="source">
+        <option>Instagram（リール）</option>
+        <option>note（健診ガイド）</option>
+        <option>X</option>
+        <option>Kindle本『健診結果で落ち込まないで！』</option>
+        <option>知人の紹介</option>
+        <option>検索</option>
+        <option>その他</option>
+      </select>
       <button class="btn" onclick="checkin()">チェックインする</button>
       <p class="note">送信先：info@floravita.co（お使いのメールアプリが開きます）</p>
     </div>
@@ -447,6 +457,7 @@ function checkin(){
   const date=document.getElementById('date').value.trim()||'（未入力）';
   const date2=document.getElementById('date2').value.trim()||'（未入力）';
   const topic=document.getElementById('topic').value.trim()||'（未入力）';
+  const source=document.getElementById('source').value;
 
   /* 受付番号を発行して待合室を表示 */
   const ticket=Math.floor(100+Math.random()*900);
@@ -463,6 +474,7 @@ function checkin(){
     +'第一希望日時： '+date+'\n'
     +'第二希望日時： '+date2+'\n'
     +'ご相談内容： '+topic+'\n'
+    +'知ったきっかけ： '+source+'\n'
     +'受付番号： '+ticket+'\n'
     +'--------------------------------\n'
     +'（このメールは受付ページから自動作成されました）';
