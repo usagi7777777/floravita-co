@@ -33,20 +33,21 @@
   /* ---------- ヘッダー ---------- */
   header{
     position:sticky;top:0;z-index:50;
-    display:flex;align-items:center;justify-content:space-between;
-    padding:18px 5vw;background:rgba(255,255,255,.92);
-    backdrop-filter:blur(8px);border-bottom:1px solid #f0ebe3;
+    display:flex;align-items:center;justify-content:space-between;gap:12px;
+    padding:8px 4vw;background:rgba(255,255,255,.94);
+    backdrop-filter:blur(8px);border-bottom:1px solid #f0ebe3;min-height:48px;
   }
-  .logo{font-size:26px;font-weight:800;letter-spacing:.06em;color:var(--green-deep)}
+  .logo{font-size:16px;font-weight:700;letter-spacing:.03em;color:var(--green-deep);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
   .logo span{color:var(--pink)}
-  nav{display:flex;gap:8px;flex-wrap:wrap}
+  nav{display:flex;gap:8px;flex-wrap:nowrap;flex-shrink:0}
   nav a{
-    text-decoration:none;color:var(--ink);font-weight:700;font-size:17px;
-    padding:10px 18px;border-radius:999px;transition:background .4s;
+    text-decoration:none;color:var(--ink);font-weight:700;font-size:14px;
+    padding:7px 16px;border-radius:999px;transition:background .4s;white-space:nowrap;
   }
   nav a:hover{background:var(--ivory)}
   nav a.cta{background:var(--green);color:#fff}
   nav a.cta:hover{background:var(--green-deep)}
+  footer .logo{font-size:22px;font-weight:800}
 
   section{padding:96px 5vw}
   .inner{max-width:1040px;margin:0 auto}
@@ -81,11 +82,6 @@
   .hero-chara img{width:min(320px,70vw);animation:breath 3.2s ease-in-out infinite}
   .hero-chara figcaption{font-size:16px;color:#9a9a9a;margin-top:8px}
   @keyframes breath{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
-
-  .logo{white-space:nowrap}
-  .logo small{display:inline-block;margin-left:10px;font-size:14px;font-weight:700;color:var(--green-deep);letter-spacing:.04em;vertical-align:middle}
-
-  @media (max-width:900px){.logo small{display:none}}
 
   /* ---------- Floravitaについて ---------- */
   .about{background:var(--ivory)}
@@ -234,13 +230,8 @@
 <body>
 
 <header>
-  <div class="logo">Flora<span>vita</span><small>もも先生</small></div>
+  <div class="logo">Flora<span>vita</span>　内科専門医　もも先生</div>
   <nav>
-    <a href="https://note.com/moppyandchappy/n/n0883a53cb4a9" target="_blank" rel="noopener">健診ガイド</a>
-    <a href="#about">Floravitaについて</a>
-    <a href="#flow">ご利用の流れ</a>
-    <a href="#course">コースと料金</a>
-    <a href="#staff">スタッフ</a>
     <a href="#reception" class="cta">受付へ</a>
   </nav>
 </header>
@@ -254,11 +245,9 @@
       <p class="sub">Floravita オンライン相談ルームは、
       健康や生活習慣の気がかりを、医師とゆっくり話せる場所です。
       待ち時間の不安も、かしこまった緊張も、ここにはありません。</p>
-      <p class="offer">健診結果を、落ち込まず次の一手に。</p>
+      <p class="offer">健診結果が不安な方は、ぜひご相談ください</p>
       <div class="btn-row">
-        <a class="btn" href="https://note.com/moppyandchappy/n/n0883a53cb4a9" target="_blank" rel="noopener">ガイドを読む</a>
-        <a class="btn secondary" href="https://www.amazon.co.jp/dp/B0HDSC39FC" target="_blank" rel="noopener">Kindleで読む</a>
-        <a class="btn ghost" href="#reception">相談の受付へ</a>
+        <a class="btn" href="#reception">相談の受付へ</a>
       </div>
     </div>
     <figure class="hero-chara">
@@ -279,9 +268,9 @@
         <figcaption>もも先生｜内科専門医・予防医療</figcaption>
       </figure>
       <div class="text">
-        <p>はじめまして。Floravitaを主宰しています、内科医の<span class="name">もも先生</span>です。</p>
+        <p>はじめまして。Floravitaを主宰しています、内科専門医のもも先生です。</p>
         <p>総合内科専門医／人間ドック・予防医療学会認定医として約20年、外来と健診の現場で、数万人の方の健康や不安と向き合ってきました。元大手IT企業の企業医。アメリカの医師国家試験にも合格し、シドニーの研究機関（Garvan Institute）では肥満研究に携わりました。</p>
-        <p>診察室では、いつも時間が足りません。「本当はもっとゆっくり聞きたいのに」。その気持ちが、この相談ルームの出発点です。健診の数字のこと、ご家族の健康のこと、誰かに話したかったこと。白衣のない場所で、ゆっくりお話ししましょう。</p>
+        <p>普段の診察室では、いつもゆっくりお話しする時間がとれません。もっとゆっくりみなさんのお話が聞きたい！この相談ルームはその気持ちから生まれました。体のこと、心のこと、健診結果、睡眠やささいな悩みごと、ご家族の健康のこと、誰かに話したかったこと‥<br>白衣のない場所で、ゆっくりお話ししましょう😊🌿</p>
         <div class="sns">
           <a href="https://note.com/moppyandchappy/n/n0883a53cb4a9" target="_blank" rel="noopener">健診ガイド（note）</a>
           <a href="https://www.instagram.com/dr.momo7/" target="_blank" rel="noopener">Instagram（もも先生）</a>
@@ -447,7 +436,7 @@
 </section>
 
 <footer>
-  <div class="logo">Flora<span>vita</span><small>もも先生</small></div>
+  <div class="logo">Flora<span>vita</span></div>
   <p class="disclaimer">当ルームは医療機関ではありません。診断・治療・処方・医薬品の提供は行いません。<br>
   体調がすぐれない場合は医療機関の受診をご検討ください。緊急を要する症状のときは、ためらわず救急（119）へ。</p>
   <p>開室：毎週火・日 13〜17時（予約制）／ご連絡先：info@floravita.co</p>
