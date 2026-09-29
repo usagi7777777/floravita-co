@@ -101,6 +101,14 @@
   }
   .sns a:hover{background:var(--green);color:#fff}
 
+  /* ---------- 紹介動画 ---------- */
+  .cm{background:var(--paper)}
+  .cm .wrap{display:flex;gap:40px;align-items:center;justify-content:center;flex-wrap:wrap}
+  .cm video{width:min(340px,80vw);aspect-ratio:9/16;border-radius:var(--radius);background:#000;
+    box-shadow:0 14px 40px rgba(90,80,60,.14)}
+  .cm .text{flex:0 1 380px;min-width:260px;font-size:18px}
+  .cm .text p{margin-bottom:16px}
+
   /* ---------- 流れ ---------- */
   .flow{background:var(--ivory)}
   .steps{display:flex;gap:28px;flex-wrap:wrap;justify-content:center}
@@ -277,6 +285,24 @@
           <a href="https://x.com/floravita_" target="_blank" rel="noopener">X</a>
           <a href="https://www.amazon.co.jp/dp/B0HDSC39FC" target="_blank" rel="noopener">著書『健診結果で落ち込まないで！』</a>
         </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 紹介動画 -->
+<section class="cm" id="cm">
+  <div class="inner">
+    <h2><span class="accent">Floravita</span>の紹介動画</h2>
+    <p class="lead">相談ルームの雰囲気を、55秒の動画でどうぞ。</p>
+    <div class="wrap">
+      <video controls playsinline preload="metadata" poster="assets/floravita-cm-poster.jpg">
+        <source src="assets/floravita-cm.mp4" type="video/mp4">
+      </video>
+      <div class="text">
+        <p>診察室で聞きそびれたこと、ありませんか？</p>
+        <p>いつもの診察室では、ゆっくり聞けなかったこと。不安なこと。オンラインの相談ルームで、丁寧にお聞きします。</p>
+        <a class="btn" href="#reception">相談の受付へ</a>
       </div>
     </div>
   </div>
