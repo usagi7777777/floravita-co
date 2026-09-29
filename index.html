@@ -9,8 +9,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Floravita オンライン相談ルーム</title>
-<meta name="description" content="健診結果を落ち込まず次の一手に。人間ドック認定の内科医によるガイド。noteとKindleで読めます。">
+<title>Floravita もも先生｜オンライン相談ルーム</title>
+<meta name="description" content="Floravita もも先生（内科専門医・予防医療）のオンライン相談ルーム。健診結果を落ち込まず次の一手に。健康や生活習慣の気がかりを、医師とゆっくり話せる場所です。">
 <style>
   :root{
     --ink:#3a3a3a;
@@ -82,12 +82,17 @@
   .hero-chara figcaption{font-size:16px;color:#9a9a9a;margin-top:8px}
   @keyframes breath{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
 
+  .logo{white-space:nowrap}
+  .logo small{display:inline-block;margin-left:10px;font-size:14px;font-weight:700;color:var(--green-deep);letter-spacing:.04em;vertical-align:middle}
+
+  @media (max-width:900px){.logo small{display:none}}
+
   /* ---------- Floravitaについて ---------- */
   .about{background:var(--ivory)}
   .about .wrap{display:flex;gap:48px;align-items:center;flex-wrap:wrap;justify-content:center}
-  .about .photo{flex:0 1 260px;text-align:center}
-  .about .photo img{width:min(240px,60vw);border-radius:50%;background:var(--paper);
-    box-shadow:0 14px 40px rgba(90,80,60,.10);padding:16px}
+  .about .photo{flex:0 1 280px;text-align:center}
+  .about .photo img{width:min(260px,70vw);aspect-ratio:3/4;object-fit:cover;border-radius:28px;
+    background:var(--paper);box-shadow:0 14px 40px rgba(90,80,60,.14)}
   .about .photo figcaption{font-size:15px;color:#9a9a9a;margin-top:10px}
   .about .text{flex:1 1 420px;min-width:300px;font-size:18px}
   .about .text p{margin-bottom:18px}
@@ -191,6 +196,7 @@
   }
   .member:hover{transform:translateY(-6px)}
   .member img{width:120px}
+  .member img.photo{width:120px;height:120px;border-radius:50%;object-fit:cover;box-shadow:0 8px 24px rgba(90,80,60,.14)}
   .member h3{font-size:20px;font-weight:800;margin-top:12px}
   .member p{font-size:15px;color:#8a8a8a}
   .member .tag{
@@ -228,7 +234,7 @@
 <body>
 
 <header>
-  <div class="logo">Flora<span>vita</span></div>
+  <div class="logo">Flora<span>vita</span><small>もも先生</small></div>
   <nav>
     <a href="https://note.com/moppyandchappy/n/n0883a53cb4a9" target="_blank" rel="noopener">健診ガイド</a>
     <a href="#about">Floravitaについて</a>
@@ -269,16 +275,16 @@
     <p class="lead">主宰の医師から、ごあいさつ。</p>
     <div class="wrap">
       <figure class="photo">
-        <img src="assets/dr-momo.png" alt="Dr.Momo">
-        <figcaption>Dr.Momo（総合内科専門医・認定産業医）</figcaption>
+        <img src="assets/momo-sensei.jpg" alt="もも先生（内科専門医・予防医療）">
+        <figcaption>もも先生｜内科専門医・予防医療</figcaption>
       </figure>
       <div class="text">
-        <p>はじめまして。Floravitaを主宰しています、内科医の<span class="name">Momo</span>です。</p>
-        <p>総合内科専門医・認定産業医として約20年、外来と健診の現場で、数万人の方の健康や不安と向き合ってきました。シドニーの研究機関（Garvan Institute）で研究をしていた時期もあります。</p>
+        <p>はじめまして。Floravitaを主宰しています、内科医の<span class="name">もも先生</span>です。</p>
+        <p>総合内科専門医／人間ドック・予防医療学会認定医として約20年、外来と健診の現場で、数万人の方の健康や不安と向き合ってきました。元大手IT企業の企業医。アメリカの医師国家試験にも合格し、シドニーの研究機関（Garvan Institute）では肥満研究に携わりました。</p>
         <p>診察室では、いつも時間が足りません。「本当はもっとゆっくり聞きたいのに」。その気持ちが、この相談ルームの出発点です。健診の数字のこと、ご家族の健康のこと、誰かに話したかったこと。白衣のない場所で、ゆっくりお話ししましょう。</p>
         <div class="sns">
           <a href="https://note.com/moppyandchappy/n/n0883a53cb4a9" target="_blank" rel="noopener">健診ガイド（note）</a>
-          <a href="https://www.instagram.com/floravita.health/" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://www.instagram.com/dr.momo7/" target="_blank" rel="noopener">Instagram（もも先生）</a>
           <a href="https://x.com/floravita_" target="_blank" rel="noopener">X</a>
           <a href="https://www.amazon.co.jp/dp/B0HDSC39FC" target="_blank" rel="noopener">著書『健診結果で落ち込まないで！』</a>
         </div>
@@ -404,11 +410,11 @@
 <section class="staff" id="staff">
   <div class="inner">
     <h2><span class="accent">スタッフ</span>紹介</h2>
-    <p class="lead">相談相手のDr.Momoと、Floravitaオフィスの動物スタッフたちです。</p>
+    <p class="lead">相談相手のもも先生と、Floravitaオフィスの動物スタッフたちです。</p>
     <div class="members">
       <div class="member">
-        <img src="assets/dr-momo.png" alt="Dr.Momo">
-        <h3>Dr.Momo</h3><p>あなたの相談相手。総合内科専門医・認定産業医。健診の数字から暮らしの気がかりまで、やさしい言葉で一緒に整理します。</p>
+        <img class="photo" src="assets/momo-sensei-sq.jpg" alt="もも先生">
+        <h3>もも先生</h3><p>あなたの相談相手。総合内科専門医／人間ドック・予防医療学会認定医。健診の数字から暮らしの気がかりまで、やさしい言葉で一緒に整理します。</p>
         <span class="tag">相談相手</span>
       </div>
       <div class="member">
@@ -441,7 +447,7 @@
 </section>
 
 <footer>
-  <div class="logo">Flora<span>vita</span></div>
+  <div class="logo">Flora<span>vita</span><small>もも先生</small></div>
   <p class="disclaimer">当ルームは医療機関ではありません。診断・治療・処方・医薬品の提供は行いません。<br>
   体調がすぐれない場合は医療機関の受診をご検討ください。緊急を要する症状のときは、ためらわず救急（119）へ。</p>
   <p>開室：毎週火・日 13〜17時（予約制）／ご連絡先：info@floravita.co</p>
