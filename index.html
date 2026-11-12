@@ -11,6 +11,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Floravita もも先生｜オンライン相談ルーム</title>
 <meta name="description" content="Floravita もも先生（内科専門医・予防医療）のオンライン相談ルーム。健診結果を落ち込まず次の一手に。健康や生活習慣の気がかりを、医師とゆっくり話せる場所です。">
+<link rel="preload" as="image" href="assets/ameba-blog.png">
 <style>
   :root{
     --ink:#3a3a3a;
@@ -49,15 +50,15 @@
   nav a.cta:hover{background:var(--green-deep)}
   footer .logo{font-size:22px;font-weight:800}
 
-  section{padding:96px 5vw}
+  section{padding:72px 5vw}
   .inner{max-width:1040px;margin:0 auto}
   h2{font-size:clamp(34px,5vw,48px);font-weight:800;letter-spacing:.04em;
      text-align:center;margin-bottom:16px}
-  .lead{text-align:center;font-size:19px;color:#6b6b6b;margin-bottom:56px}
+  .lead{text-align:center;font-size:19px;color:#6b6b6b;margin-bottom:40px}
   .accent{color:var(--green-deep)}
 
   /* ---------- ヒーロー ---------- */
-  .hero{background:var(--paper);padding:72px 5vw 88px}
+  .hero{background:var(--paper);padding:64px 5vw 72px}
   .hero .inner{
     display:flex;align-items:center;gap:48px;flex-wrap:wrap;justify-content:center;
   }
@@ -79,7 +80,7 @@
   .btn:hover{transform:translateY(-3px);background:var(--green-deep);
     box-shadow:0 18px 40px rgba(122,158,126,.45)}
   .hero-chara{flex:0 1 340px;text-align:center}
-  .hero-chara img{width:min(320px,70vw);animation:breath 3.2s ease-in-out infinite}
+  .hero-chara img{width:min(320px,70vw);aspect-ratio:1/1;object-fit:contain;animation:breath 3.2s ease-in-out infinite}
   .hero-chara figcaption{font-size:16px;color:#9a9a9a;margin-top:8px}
   @keyframes breath{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
 
@@ -108,6 +109,7 @@
     box-shadow:0 14px 40px rgba(90,80,60,.14)}
   .cm .text{flex:0 1 380px;min-width:260px;font-size:18px}
   .cm .text p{margin-bottom:16px}
+  .nb{display:inline-block}
 
   /* ---------- 流れ ---------- */
   .flow{background:var(--ivory)}
@@ -126,13 +128,14 @@
     width:auto;min-width:56px;padding:0 24px;border-radius:999px;
     font-size:22px;letter-spacing:.04em;white-space:nowrap;
   }
-  .step h3{font-size:24px;font-weight:800;margin-bottom:12px}
+  .step h3{font-size:23px;font-weight:800;margin-bottom:12px}
+  .flow .step h3{white-space:nowrap}
   .step p{font-size:17px;color:#6b6b6b}
 
   /* ---------- 受付 ---------- */
   .reception .card{
     max-width:640px;margin:0 auto;background:var(--paper);
-    border-radius:var(--radius);padding:56px 8vw;
+    border-radius:var(--radius);padding:52px 48px;
     box-shadow:0 20px 60px rgba(90,80,60,.10);
   }
   .reception{background:var(--paper)}
@@ -144,9 +147,10 @@
     color:var(--ink);outline:none;transition:border .3s;
   }
   input:focus,select:focus,textarea:focus{border-color:var(--green)}
+  ::placeholder{color:#8d8272;opacity:1}
   textarea{min-height:120px;resize:vertical}
   .reception .btn{width:100%;margin-top:40px;font-size:24px}
-  .note{font-size:15px;color:#9a9a9a;margin-top:20px;text-align:center}
+  .note{font-size:16px;color:#7f7f7f;margin-top:20px;text-align:center}
 
   /* ---------- 待合室 ---------- */
   .waiting{background:var(--ivory);display:none}
@@ -192,20 +196,20 @@
 
   /* ---------- スタッフ ---------- */
   .staff{background:var(--paper)}
-  .members{display:flex;gap:24px;flex-wrap:wrap;justify-content:center}
+  .members{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
   .member{
-    flex:0 1 220px;background:var(--ivory);border-radius:var(--radius);
+    display:flex;flex-direction:column;align-items:center;background:var(--ivory);border-radius:var(--radius);
     padding:28px 20px;text-align:center;
     transition:transform .4s;
   }
   .member:hover{transform:translateY(-6px)}
-  .member img{width:120px}
+  .member img{width:120px;height:120px;object-fit:contain}
   .member img.photo{width:120px;height:120px;border-radius:50%;object-fit:cover;box-shadow:0 8px 24px rgba(90,80,60,.14)}
   .member h3{font-size:20px;font-weight:800;margin-top:12px}
-  .member p{font-size:15px;color:#8a8a8a}
+  .member p{font-size:15px;color:#8a8a8a;margin-bottom:14px}
   .member .tag{
     display:inline-block;font-size:13px;font-weight:700;color:#fff;
-    background:var(--pink);border-radius:999px;padding:2px 14px;margin-top:8px;
+    background:var(--pink);border-radius:999px;padding:2px 14px;margin-top:auto;
   }
   .member .tag.g{background:var(--green)}
 
@@ -228,10 +232,22 @@
   /* ---------- フッター ---------- */
   footer{background:var(--ivory);padding:64px 5vw;text-align:center}
   footer .logo{margin-bottom:16px}
-  footer p{font-size:15px;color:#9a9a9a;max-width:720px;margin:6px auto}
+  footer p{font-size:15px;color:#8a8a8a;max-width:720px;margin:6px auto}
   footer .disclaimer{
     font-weight:700;color:#8a8a8a;background:var(--paper);
     border-radius:16px;padding:20px;margin:24px auto;max-width:720px;
+  }
+
+  /* ---------- スマホ調整 ---------- */
+  @media (max-width:900px){
+    .members{grid-template-columns:repeat(2,1fr)}
+  }
+  @media (max-width:640px){
+    section{padding:56px 5vw}
+    .reception .card{padding:40px 20px}
+    .members{grid-template-columns:1fr}
+    .step{padding:32px 20px;max-width:100%}
+    .flow .step h3{font-size:20px}
   }
 </style>
 </head>
@@ -258,7 +274,7 @@
       </div>
     </div>
     <figure class="hero-chara">
-      <img src="assets/ameba-blog.png" alt="受付係のうさぎ">
+      <img src="assets/ameba-blog.png" alt="受付係のうさぎ" fetchpriority="high">
       <figcaption>受付係のうさぎが、ご案内します</figcaption>
     </figure>
   </div>
@@ -300,7 +316,7 @@
       </video>
       <div class="text">
         <p>診察室で聞きそびれたこと、ありませんか？</p>
-        <p>いつもの診察室では、ゆっくり聞けなかったこと。不安なこと。オンラインの相談ルームで、丁寧にお聞きします。</p>
+        <p><span class="nb">いつもの診察室では、</span><span class="nb">ゆっくり聞けなかったこと。</span><span class="nb">不安なこと。</span><span class="nb">オンラインの相談ルームで、</span><span class="nb">丁寧にお聞きします。</span></p>
         <a class="btn" href="#reception">相談の受付へ</a>
       </div>
     </div>
@@ -371,9 +387,9 @@
       <input id="name" type="text" placeholder="例：みゆき">
       <label for="course">ご希望のコース</label>
       <select id="course">
-        <option>オンライン健康相談・ヘルスケアサポート（30分・￥8,000）</option>
-        <option>オンライン健康相談・ヘルスケアサポート（60分・￥16,000）</option>
-        <option>お話し相手・こころのセルフケアサポート（30分・￥8,000）</option>
+        <option>オンライン健康相談（30分・￥8,000）</option>
+        <option>オンライン健康相談（60分・￥16,000）</option>
+        <option>お話し相手・こころのセルフケア（30分・￥8,000）</option>
       </select>
       <label for="date">第一希望の日時（毎週火・日 13〜17時）</label>
       <input id="date" type="text" placeholder="例：8月18日（火）14時ごろ">
